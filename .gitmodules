@@ -7,3 +7,6 @@
 [submodule "vim/bundle/vim-clojure-highlight"]
 	path = vim/bundle/vim-clojure-highlight
 	url = https://github.com/guns/vim-clojure-highlight.git
+[submodule "vim/bundle/paredit"]
+	path = vim/bundle/paredit
+	url = https://github.com/vim-scripts/paredit.vim.git
