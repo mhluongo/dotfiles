@@ -28,6 +28,14 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+""""""""""""""""""""""""
+" OS-specific settings "
+""""""""""""""""""""""""
+
+if filereadable("~/.vimrc-osx")
+    source "~/.vimrc-osx"
+endif
+
 """"""""""""""""""""""""""""""
 " Language-specific settings "
 """"""""""""""""""""""""""""""
