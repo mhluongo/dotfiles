@@ -9,6 +9,9 @@ set shiftwidth=4
 set expandtab
 set mouse=a
 
+" character counts at the bottom, etc
+set ruler
+
 " vim-gitgutter config
 
 highlight clear SignColumn
