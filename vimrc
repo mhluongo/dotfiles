@@ -12,6 +12,10 @@ set mouse=a
 " character counts at the bottom, etc
 set ruler
 
+" code folding
+set foldmethod=syntax
+set foldlevel=99
+
 " vim-gitgutter config
 
 highlight clear SignColumn
