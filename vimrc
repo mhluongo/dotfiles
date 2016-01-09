@@ -2,6 +2,9 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" <Leader>
+let mapleader=","
+
 " basic tabbing / mouse usage
 set smartindent
 set tabstop=4
