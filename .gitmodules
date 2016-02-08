@@ -34,3 +34,9 @@
 [submodule "vim/bundle/taboo.vim"]
 	path = vim/bundle/taboo.vim
 	url = https://github.com/gcmt/taboo.vim
+[submodule "vim/bundle/vim-emoji"]
+	path = vim/bundle/vim-emoji
+	url = https://github.com/junegunn/vim-emoji
+[submodule "vim/bundle/vim-emoji-complete"]
+	path = vim/bundle/vim-emoji-complete
+	url = https://github.com/kyuhi/vim-emoji-complete
