@@ -15,6 +15,9 @@ set mouse=a
 " character counts at the bottom, etc
 set ruler
 
+" backspace over everything in insert mode
+set backspace=indent,eol,start
+
 " code folding
 set foldmethod=syntax
 set foldlevel=99
