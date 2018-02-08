@@ -42,7 +42,7 @@ if executable('ag')
 endif
 
 " Tab renaming
-command Tr TabooRename
+command -nargs=+ Tr :TabooRename <args>
 
 """"""""""""""""""""""""
 " OS-specific settings "
