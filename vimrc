@@ -12,6 +12,9 @@ set shiftwidth=4
 set expandtab
 set mouse=a
 
+" Open new windows at the bottom
+set splitbelow
+
 " character counts at the bottom, etc
 set ruler
 
