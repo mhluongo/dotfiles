@@ -1,4 +1,13 @@
 execute pathogen#infect()
+
+" vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+
+call plug#end()
+
 syntax on
 filetype plugin indent on
 
