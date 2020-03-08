@@ -84,3 +84,7 @@ if 'VIRTUAL_ENV' in os.environ:
     execfile(activate_this, dict(__file__=activate_this))
 EOF
 endif
+
+" Two-tab indents for JS
+"
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2"
