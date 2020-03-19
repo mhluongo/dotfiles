@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'leafgarland/typescript-vim'
+Plug 'jacqueswww/vim-vyper'
 
 call plug#end()
 
