@@ -9,6 +9,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'jacqueswww/vim-vyper'
 Plug 'jason0x43/vim-js-indent'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Quramy/tsuquyomi'
 
 call plug#end()
 
@@ -101,5 +102,11 @@ endif
 " Two-tab indents for JS
 "
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2"
+
 " Disable the vim-typescript indenter in favor of vim-js-indent
+
 let g:typescript_indent_disable = 1
+
+" Use tsuquyomi for typescript completion
+
+autocmd FileType typescript setlocal completeopt-=menu
