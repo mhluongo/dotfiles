@@ -101,7 +101,8 @@ endif
 
 " Two-tab indents for JS
 "
-autocmd FileType javascript setlocal ts=2 sts=2 sw=2"
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
 
 " Disable the vim-typescript indenter in favor of vim-js-indent
 
@@ -110,3 +111,10 @@ let g:typescript_indent_disable = 1
 " Use tsuquyomi for typescript completion
 
 autocmd FileType typescript setlocal completeopt-=menu
+
+
+" Don't screw up folds when inserting text that might affect them, until
+" leaving insert mode. Foldmethod is local to the window. Protect against
+" screwing up folding when switching between windows.
+autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
