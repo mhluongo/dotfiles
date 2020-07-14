@@ -4,8 +4,8 @@ execute pathogen#infect()
 call plug#begin('~/.vim/plugged')
 
 Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jacqueswww/vim-vyper'
 Plug 'jason0x43/vim-js-indent'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -112,6 +112,8 @@ let g:typescript_indent_disable = 1
 
 autocmd FileType typescript setlocal completeopt-=menu
 
+" Highlight .jsx and .tsx files as .tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 " Don't screw up folds when inserting text that might affect them, until
 " leaving insert mode. Foldmethod is local to the window. Protect against
