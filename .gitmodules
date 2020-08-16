@@ -34,9 +34,6 @@
 [submodule "vim/bundle/vim-emoji-complete"]
 	path = vim/bundle/vim-emoji-complete
 	url = https://github.com/kyuhi/vim-emoji-complete
-[submodule "vim/bundle/vim-solidity"]
-	path = vim/bundle/vim-solidity
-	url = https://github.com/tomlion/vim-solidity.git
 [submodule "vim/bundle/vim-go"]
 	path = vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git

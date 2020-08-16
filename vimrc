@@ -10,6 +10,7 @@ Plug 'jacqueswww/vim-vyper'
 Plug 'jason0x43/vim-js-indent'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Quramy/tsuquyomi'
+Plug 'thesis/vim-solidity'
 
 call plug#end()
 
