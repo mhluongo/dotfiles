@@ -7,7 +7,7 @@ Plug 'yuezk/vim-js'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jacqueswww/vim-vyper'
-Plug 'jason0x43/vim-js-indent'
+Plug 'pangloss/vim-javascript'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Quramy/tsuquyomi'
 Plug 'thesis/vim-solidity'
