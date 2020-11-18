@@ -3,6 +3,8 @@ execute pathogen#infect()
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'yuezk/vim-js'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -105,7 +107,7 @@ endif
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
 
-" Disable the vim-typescript indenter in favor of vim-js-indent
+" Disable the vim-typescript indenter in favor of vim-javascript
 
 let g:typescript_indent_disable = 1
 
@@ -121,3 +123,10 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 " screwing up folding when switching between windows.
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
+" Save folds when leaving and entering a window
+augroup restorefolds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
