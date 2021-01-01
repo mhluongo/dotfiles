@@ -3,6 +3,7 @@ execute pathogen#infect()
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
+Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'yuezk/vim-js'
@@ -38,16 +39,29 @@ set ruler
 " backspace over everything in insert mode
 set backspace=indent,eol,start
 
-" code folding
+" Code folding
 set foldmethod=syntax
 set foldlevel=99
 
-" vim-gitgutter config
+" Don't screw up folds when inserting text that might affect them, until
+" leaving insert mode. Foldmethod is local to the window. Protect against
+" screwing up folding when switching between windows.
+autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
+" Save folds when leaving and entering a window
+augroup restorefolds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
+" vim-gitgutter config
 highlight clear SignColumn
 highlight link GitGutterAdd LineNr
 highlight link GitGutterChange LineNr
 highlight link GitGutterDelete LineNr
+command GitHi GitGutterLineHighlightsToggle " 😏
 
 " Remove trailing whitespace on write
 autocmd BufWritePre * :%s/\s\+$//e
@@ -118,15 +132,3 @@ autocmd FileType typescript setlocal completeopt-=menu
 " Highlight .jsx and .tsx files as .tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
-" Don't screw up folds when inserting text that might affect them, until
-" leaving insert mode. Foldmethod is local to the window. Protect against
-" screwing up folding when switching between windows.
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-
-" Save folds when leaving and entering a window
-augroup restorefolds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
