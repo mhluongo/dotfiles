@@ -4,6 +4,7 @@ execute pathogen#infect()
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'mhluongo/vim-emoji-complete'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'yuezk/vim-js'
