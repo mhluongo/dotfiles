@@ -15,6 +15,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Quramy/tsuquyomi'
 Plug 'thesis/vim-solidity'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -117,10 +119,16 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 endif
 
-" Two-tab indents for JS
-"
+" Two-tab indents for JS and Markdown
+
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab
+
+" Fold colors for Markdown
+
+autocmd FileType markdown hi Folded ctermfg=6
+autocmd FileType markdown hi Folded ctermbg=0
 
 " Disable the vim-typescript indenter in favor of vim-javascript
 
@@ -133,3 +141,5 @@ autocmd FileType typescript setlocal completeopt-=menu
 " Highlight .jsx and .tsx files as .tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
+" Statusline customizations
+let g:airline_theme='monochrome'
