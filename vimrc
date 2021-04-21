@@ -17,9 +17,19 @@ Plug 'Quramy/tsuquyomi'
 Plug 'thesis/vim-solidity'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
+Plug 'christianrondeau/vim-base64'
+Plug 'junegunn/vim-emoji'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'fatih/vim-go'
+Plug 'vim-scripts/paredit.vim'
+Plug 'gcmt/taboo.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 syntax on
