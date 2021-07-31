@@ -30,6 +30,7 @@ Plug 'fatih/vim-go'
 Plug 'vim-scripts/paredit.vim'
 Plug 'gcmt/taboo.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 syntax on
@@ -109,6 +110,18 @@ endif
 " Language-specific settings "
 """"""""""""""""""""""""""""""
 
+" Configure ALE to lint and auto-format
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
+let g:airline#extensions#ale#enabled = 1
+
 " Add the activate python virtualenv's site-packages to vim path
 
 if has('python')
@@ -156,4 +169,3 @@ autocmd FileType typescript setlocal completeopt-=menu
 
 " Highlight .jsx and .tsx files as .tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-
