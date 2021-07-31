@@ -93,6 +93,10 @@ endif
 " Tab renaming
 command -nargs=+ Tr :TabooRename <args>
 
+" Statusline customizations
+let g:airline_theme='monochrome'
+set noshowmode
+
 """"""""""""""""""""""""
 " OS-specific settings "
 """"""""""""""""""""""""
@@ -153,5 +157,3 @@ autocmd FileType typescript setlocal completeopt-=menu
 " Highlight .jsx and .tsx files as .tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
-" Statusline customizations
-let g:airline_theme='monochrome'
