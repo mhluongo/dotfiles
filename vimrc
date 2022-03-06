@@ -148,11 +148,13 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 endif
 
-" Two-space indents for JS and Markdown
+" Two-space indents for JS, Markdown, and JSON
+>>>>>>> 2-space indents in vim/JSON
 
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
 
 " Four-space indents for Solidity
 
