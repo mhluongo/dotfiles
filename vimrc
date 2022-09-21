@@ -29,7 +29,8 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'fatih/vim-go'
 Plug 'vim-scripts/paredit.vim'
 Plug 'gcmt/taboo.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'dense-analysis/ale'
 call plug#end()
 
@@ -87,14 +88,8 @@ command GitHi GitGutterLineHighlightsToggle " 😏
 " Remove trailing whitespace on write
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Configure CtrlP (https://github.com/kien/ctrlp.vim)
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-let g:ctrlp_cmd = 'CtrlPLastMode'
-let g:ctrlp_extensions = ['line', 'dir']
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+" Find files with Telescope
+nnoremap t <cmd>Telescope find_files<cr>
 
 " Tab renaming
 command -nargs=+ Tr :TabooRename <args>
