@@ -148,11 +148,15 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 endif
 
-" Two-tab indents for JS and Markdown
+" Two-space indents for JS and Markdown
 
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab
+
+" Four-space indents for Solidity
+
+autocmd FileType solidity setlocal ts=4 sts=4 sw=4 expandtab
 
 " Fold colors for Markdown
 
