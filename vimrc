@@ -148,11 +148,13 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 endif
 
-" Two-space indents for JS, Markdown, and JSON
->>>>>>> 2-space indents in vim/JSON
+" Highlight .jsx and .tsx files as .tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
+" Two-space indents for JS, TS, TSX, Markdown, and JSON
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType typescript.tsx setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
 
@@ -172,6 +174,3 @@ let g:typescript_indent_disable = 1
 " Use tsuquyomi for typescript completion
 
 autocmd FileType typescript setlocal completeopt-=menu
-
-" Highlight .jsx and .tsx files as .tsx
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
