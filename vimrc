@@ -13,7 +13,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jacqueswww/vim-vyper'
 Plug 'pangloss/vim-javascript'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Quramy/tsuquyomi'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'thesis/vim-solidity'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -171,6 +171,62 @@ autocmd FileType markdown hi Folded ctermbg=0
 
 let g:typescript_indent_disable = 1
 
-" Use tsuquyomi for typescript completion
+""""""""""""""""""""""""""""'''''''''''
+" coc.nvim / Language Server Settings "
+""""""""""""""""""""""""""""'''''''''''
 
-autocmd FileType typescript setlocal completeopt-=menu
+" Borrowed from shadowfiend, show documentation under the cursor
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Prevent lang server issues with backup files
+set nobackup
+set nowritebackup
+" Shorter update time means quicker warnings
+set updatetime=300
+" Show the sign column rather than flipping it
+" on and off
+set signcolumn=yes
+
+" Use <tab> for trigger completion
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+" Use <tab> and <S-tab> to choose completions
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+" Select the completion via return
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" TODO wrap these go-tos with tags so they can be used with a stack
+
+" Go-to code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
