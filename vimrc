@@ -106,6 +106,10 @@ if filereadable("~/.vimrc-osx")
     source "~/.vimrc-osx"
 endif
 
+" Use + and * registers to access the window manager clipboard
+" On Ubuntu with X11, this requires `sudo apt install xclip`
+set clipboard+=unnamedplus
+
 """"""""""""""""""""""""""""""
 " Language-specific settings "
 """"""""""""""""""""""""""""""
