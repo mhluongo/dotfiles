@@ -32,6 +32,7 @@ Plug 'gcmt/taboo.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 syntax on
