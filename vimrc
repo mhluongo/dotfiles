@@ -29,8 +29,8 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'fatih/vim-go'
 Plug 'vim-scripts/paredit.vim'
 Plug 'gcmt/taboo.vim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
 call plug#end()
 
