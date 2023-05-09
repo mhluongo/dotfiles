@@ -90,7 +90,7 @@ command GitHi GitGutterLineHighlightsToggle " 😏
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Find files with Telescope
-nnoremap t <cmd>Telescope find_files<cr>
+nnoremap t <cmd>Files<cr>
 
 " Open a new tab on Ctrl-T
 map <C-T> :tab split<Cr>
