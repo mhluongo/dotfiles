@@ -3,10 +3,11 @@ execute pathogen#infect()
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhluongo/vim-emoji-complete'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 Plug 'yuezk/vim-js'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -57,15 +58,11 @@ set ruler
 " backspace over everything in insert mode
 set backspace=indent,eol,start
 
-" Code folding
-set foldmethod=syntax
-set foldlevel=99
-
 " Don't screw up folds when inserting text that might affect them, until
 " leaving insert mode. Foldmethod is local to the window. Protect against
-" screwing up folding when switching between windows.
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+" screwing up folding when switching between windows. (Skip markdown files)
+autocmd InsertEnter * if !exists('w:last_fdm') && &ft != 'markdown' | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm') && &ft != 'markdown' | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 " Save folds when leaving and entering a window
 augroup restorefolds
@@ -174,6 +171,27 @@ autocmd FileType solidity setlocal ts=4 sts=4 sw=4 expandtab
 
 autocmd FileType markdown hi Folded ctermfg=6
 autocmd FileType markdown hi Folded ctermbg=0
+
+" Treesitter configuration - load from Lua
+lua require('treesitter-config')
+
+" Global folding settings (overridden by treesitter config for specific files)
+set foldlevelstart=99  " Start with folds open
+set foldnestmax=3      " Don't fold too deeply
+
+" Quick fold level shortcuts
+nnoremap <leader>f0 :set foldlevel=0<CR>
+nnoremap <leader>f1 :set foldlevel=1<CR>
+nnoremap <leader>f2 :set foldlevel=2<CR>
+nnoremap <leader>f3 :set foldlevel=3<CR>
+nnoremap <leader>fa :set foldlevel=99<CR>
+
+" Better markdown settings (complementing treesitter config)
+autocmd FileType markdown setlocal conceallevel=0  " Show all characters
+autocmd FileType markdown setlocal wrap
+autocmd FileType markdown setlocal linebreak
+autocmd FileType markdown setlocal textwidth=0
+autocmd FileType markdown setlocal wrapmargin=0
 
 " Disable the vim-typescript indenter in favor of vim-javascript
 
