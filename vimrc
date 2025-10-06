@@ -3,7 +3,7 @@ execute pathogen#infect()
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'tag': 'v0.9.3', 'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhluongo/vim-emoji-complete'
