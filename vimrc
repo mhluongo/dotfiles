@@ -8,11 +8,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhluongo/vim-emoji-complete'
 Plug 'godlygeek/tabular'
-Plug 'yuezk/vim-js'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jacqueswww/vim-vyper'
-Plug 'pangloss/vim-javascript'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'thesis/vim-solidity'
@@ -22,8 +18,6 @@ Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fireplace'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-clojure-highlight'
 Plug 'christianrondeau/vim-base64'
 Plug 'junegunn/vim-emoji'
 Plug 'kien/rainbow_parentheses.vim'
@@ -192,10 +186,6 @@ autocmd FileType markdown setlocal wrap
 autocmd FileType markdown setlocal linebreak
 autocmd FileType markdown setlocal textwidth=0
 autocmd FileType markdown setlocal wrapmargin=0
-
-" Disable the vim-typescript indenter in favor of vim-javascript
-
-let g:typescript_indent_disable = 1
 
 """"""""""""""""""""""""""""'''''''''''
 " coc.nvim / Language Server Settings "
