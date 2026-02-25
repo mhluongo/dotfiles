@@ -42,6 +42,10 @@ claude-tree() {
     ln -sfn "$main_repo/.claude" "$dir/.claude"
   fi
 
+  if [[ -L "$main_repo/plans" ]]; then
+    ln -s "$(readlink "$main_repo/plans")" "$dir/plans"
+  fi
+
   printf '\033]0;claude-tree: %s\007' "$branch"
   cd "$dir" && DISABLE_AUTO_TITLE=true claude
 }
