@@ -3,6 +3,20 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . "$HOME/.cargo/env"
 
+# virtualenvwrapper settings
+export WORKON_HOME=$HOME/.virtualenvs
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+. /usr/local/bin/virtualenvwrapper.sh
+source "$HOME/.cargo/env"
+
+# neovim!
+alias vim='nvim'
+
+# PATH additions for Android development
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # pnpm
 export PNPM_HOME="/home/matt/.local/share/pnpm"
 case ":$PATH:" in
