@@ -33,6 +33,7 @@ function! s:HqHighlight()
   call matchadd('HqKeyword', '@project', 10)
   call matchadd('HqKeyword', '@customer', 10)
   call matchadd('HqKeyword', '@kaizen', 10)
+  call matchadd('HqKeyword', '@todo', 10)
 endfunction
 
 augroup HqKeywords
