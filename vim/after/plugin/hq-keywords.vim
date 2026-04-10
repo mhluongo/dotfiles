@@ -1,4 +1,4 @@
-" hq keyword highlighting — only in ~/Sync/scratch/notes/
+" hq keyword highlighting for select markdown files under ~/Sync/scratch/
 " Keywords defined in crates/hq-core/src/keyword.rs
 " Update here when adding new keywords to hq-core
 
@@ -9,7 +9,11 @@ function! s:HqHighlight()
   if &filetype !=# 'markdown'
     return
   endif
-  if resolve(expand('%:p')) !~# '^' . expand('~') . '/Sync/scratch/notes/'
+  let l:path = resolve(expand('%:p'))
+  let l:base = expand('~') . '/Sync/scratch/'
+  if l:path !~# '^' . l:base . 'notes/'
+        \ && l:path !~# '^' . l:base . 'people/'
+        \ && l:path !=# l:base . 'today.md'
     return
   endif
   if get(w:, 'hq_keywords_loaded', 0)
