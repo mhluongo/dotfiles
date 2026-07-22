@@ -15,6 +15,7 @@ Apply these rules to all documentation, comments, commit messages, and any other
 # Git policy
 * NEVER run `git rebase`, `git commit --amend`, or any other destructive git operation unless explicitly requested by the user
 * NEVER run `git push` or open a pull request unless explicitly requested by the user
+* NEVER include details about a Claude session in a commit message or PR unless explicitly requested by the users
 * ALWAYS prefer commiting changes directly over staging changes with `git add` or `git rm`.
 * ALWAYS commit frequently. Small, logical commits, with a max of 50 characters for the subject and 72 per line for the body.
 * Use `git status` and `git log` often to better understand context
